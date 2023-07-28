@@ -164,19 +164,23 @@ namespace TN.EventBus.RabbitMQ.Bus
 
             channel.ExchangeDeclare(exchange: _exchangeName, type: ExchangeType.Direct);
 
-            var queues = _queueMappings.Values;
-            foreach (var queue in queues)
+            //var queues = _queueMappings.Values;
+            //foreach (var queue in queues)
+            //{
+            //    channel.QueueDeclare
+            //    (
+            //        queue: queue,
+            //        durable: true,
+            //        exclusive: false,
+            //        autoDelete: false,
+            //        arguments: null
+            //    );
+            //}
+            foreach (var mapping in _queueMappings)
             {
-                channel.QueueDeclare
-                (
-                    queue: queue,
-                    durable: true,
-                    exclusive: false,
-                    autoDelete: false,
-                    arguments: null
-                );
+                channel.QueueDeclare(queue: mapping.Value, durable: true, exclusive: false, autoDelete: false, arguments: null);
+                channel.QueueBind(queue: mapping.Value, exchange: _exchangeName, routingKey: mapping.Key);
             }
-
 
             channel.CallbackException += (sender, ea) =>
             {
