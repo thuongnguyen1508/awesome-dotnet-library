@@ -29,7 +29,7 @@ namespace TN.EventBus
                 var subscribeMethod = _eventBus.GetType().GetMethod(nameof(IEventBus.Subscribe));
                 var handlerType = eventHandlerType.MakeGenericType(item.Key);
 
-                subscribeMethod.MakeGenericMethod(item.Key, handlerType).Invoke(_eventBus, new object[] { cancellationToken });
+                subscribeMethod.MakeGenericMethod(item.Key, handlerType).Invoke(_eventBus, null);
             }
 
             return Task.CompletedTask;

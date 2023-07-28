@@ -5,6 +5,8 @@ using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
+using TN.EventBus.Events;
 using TN.EventBus.RabbitMQ.Bus;
 using TN.EventBus.RabbitMQ.Connection;
 using TN.EventBus.Subscriptions;
@@ -14,7 +16,7 @@ namespace TN.EventBus.RabbitMQ.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddRabbitMQEventBus(this IServiceCollection services, IConfiguration configuration, Dictionary<Type, string> definedMessageTypes = null)
+        public static IServiceCollection AddRabbitMQEventBus(this IServiceCollection services, IConfiguration configuration, Assembly providerAssembly, Dictionary<Type, string> definedMessageTypes = null)
         {
             definedMessageTypes ??= new Dictionary<Type, string>();
             services.AddSingleton(sp => new DefinedSubscriptionMessageType(definedMessageTypes));
@@ -48,6 +50,13 @@ namespace TN.EventBus.RabbitMQ.Extensions
             });
 
             services.AddStartupTask<EventBusSubscribeWarmup>();
+
+            var assemblies = new[] { providerAssembly };
+            services.Scan(scan => scan
+                .FromAssemblies(assemblies)
+                .AddClasses(c => c.AssignableTo(typeof(IEventHandler<>)))
+                .AsImplementedInterfaces()
+                .WithTransientLifetime());
 
             return services;
         }
