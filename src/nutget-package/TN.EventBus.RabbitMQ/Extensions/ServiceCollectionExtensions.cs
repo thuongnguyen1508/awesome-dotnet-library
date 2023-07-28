@@ -4,15 +4,23 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
 using System;
+using System.Collections.Generic;
+using System.Reflection;
+using TN.EventBus.Events;
 using TN.EventBus.RabbitMQ.Bus;
 using TN.EventBus.RabbitMQ.Connection;
+using TN.EventBus.Subscriptions;
+using TN.Warmups;
 
 namespace TN.EventBus.RabbitMQ.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddRabbitMQEventBus(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddRabbitMQEventBus(this IServiceCollection services, IConfiguration configuration, Assembly providerAssembly, Dictionary<Type, string> definedMessageTypes = null)
         {
+            definedMessageTypes ??= new Dictionary<Type, string>();
+            services.AddSingleton(sp => new DefinedSubscriptionMessageType(definedMessageTypes));
+
             services.Configure<RabbitMQSettings>(op =>
             {
                 configuration.GetSection("RabbitMQ").Bind(op);
@@ -40,6 +48,15 @@ namespace TN.EventBus.RabbitMQ.Extensions
 
                 return new RabbitMQEventBus(persistentConnection, subscriptionManager, factory, logger, rabbitMQSeting);
             });
+
+            services.AddStartupTask<EventBusSubscribeWarmup>();
+
+            var assemblies = new[] { providerAssembly };
+            services.Scan(scan => scan
+                .FromAssemblies(assemblies)
+                .AddClasses(c => c.AssignableTo(typeof(IEventHandler<>)))
+                .AsImplementedInterfaces()
+                .WithTransientLifetime());
 
             return services;
         }
