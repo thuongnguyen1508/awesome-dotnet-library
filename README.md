@@ -5,13 +5,14 @@
 
 ## Overview  
 
-This repository contains a collection of reusable .NET libraries, starting with an **Event Bus implementation using RabbitMQ**. The goal is to provide modular, extensible packages to simplify development.  
+This repository contains a collection of reusable .NET libraries. The goal is to provide modular, extensible packages to simplify development.  
 
 ## Features  
 
 ✔ **TN.EventBus**: Core event bus interface.  
 ✔ **TN.EventBus.RabbitMQ**: Implementation using RabbitMQ.  
 ✔ **TN.Example**: Sample usage of the event bus.  
+✔ **TN.Azure.EventHub**: Implementation using Azure eventhub.  
 
 ## Installation  
 
