@@ -14,6 +14,7 @@ This repository contains a collection of reusable .NET libraries. The goal is to
 ✔ **TN.Example**: Sample usage of the event bus.  
 ✔ **TN.Azure.EventHub**: Implementation using Azure eventhub.  
 ✔ **TN.Azure.EventGrid**: Implementation using Azure event grid.  
+✔ **TN.Azure.ServiceBus**: Implementation using Azure servicebus.  
 
 ## Installation  
 
