@@ -15,6 +15,9 @@ This repository contains a collection of reusable .NET libraries. The goal is to
 ✔ **TN.Azure.EventHub**: Implementation using Azure eventhub.  
 ✔ **TN.Azure.EventGrid**: Implementation using Azure event grid.  
 ✔ **TN.Azure.ServiceBus**: Implementation using Azure servicebus.  
+✔ **TN.Azure.Storage**: Implementation using Azure storage.  
+✔ **TN.Azure.KeyVault**: Implementation using Azure keyvault.  
+✔ **TN.Azure.Cosmos**: Implementation using Azure cosmos database.  
 
 ## Installation  
 
