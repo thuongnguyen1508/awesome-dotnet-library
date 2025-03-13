@@ -4,6 +4,6 @@
     {
         public string Endpoint { get; set; }
         public string Key { get; set; }
-        public bool UseAzureIdentity { get; set; } = true;
+        public List<string> EventGridPublisherNameDefinition { get; set; } = new();
     }
 }

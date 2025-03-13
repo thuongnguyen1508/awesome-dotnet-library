@@ -18,19 +18,14 @@ namespace TN.Azure.EventGrid
 
             services.AddAzureClients(clientBuilder =>
             {
-                // Register Event Grid Client A
-                clientBuilder
-                    .AddEventGridPublisherClient(
-                        new Uri(eventGridOption.Endpoint),
-                        new AzureKeyCredential(eventGridOption.Key))
-                    .WithName(SystemConstant.EventGridA);
-
-                // Register Event Grid Client B
-                clientBuilder
-                    .AddEventGridPublisherClient(
-                        new Uri(eventGridOption.Endpoint),
-                        new AzureKeyCredential(eventGridOption.Key))
-                    .WithName(SystemConstant.EventGridB);
+                foreach (var publisherName in eventGridOption.EventGridPublisherNameDefinition)
+                {
+                    clientBuilder
+                        .AddEventGridPublisherClient(
+                            new Uri(eventGridOption.Endpoint),
+                            new AzureKeyCredential(eventGridOption.Key))
+                        .WithName(publisherName);
+                }
             });
 
             services.AddSingleton<IEventGridService, EventGridService>();

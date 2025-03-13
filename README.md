@@ -13,6 +13,7 @@ This repository contains a collection of reusable .NET libraries. The goal is to
 ✔ **TN.EventBus.RabbitMQ**: Implementation using RabbitMQ.  
 ✔ **TN.Example**: Sample usage of the event bus.  
 ✔ **TN.Azure.EventHub**: Implementation using Azure eventhub.  
+✔ **TN.Azure.EventGrid**: Implementation using Azure event grid.  
 
 ## Installation  
 
