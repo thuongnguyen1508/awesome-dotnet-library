@@ -2,6 +2,6 @@
 {
     public interface IServiceBusService
     {
-        Task SendAsync<T>(T item, string topic);
+        Task SendAsync<T>(T item, string topic, Dictionary<string, object>? messageProperties = null);
     }
 }

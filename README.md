@@ -18,6 +18,8 @@ This repository contains a collection of reusable .NET libraries. The goal is to
 ✔ **TN.Azure.Storage**: Implementation using Azure storage.  
 ✔ **TN.Azure.KeyVault**: Implementation using Azure keyvault.  
 ✔ **TN.Azure.Cosmos**: Implementation using Azure cosmos database.  
+✔ **TN.Excel**: Implementation importer/exporter excel.  
+✔ **TN.Slack**: Implementation function send slack.  
 
 ## Installation  
 
