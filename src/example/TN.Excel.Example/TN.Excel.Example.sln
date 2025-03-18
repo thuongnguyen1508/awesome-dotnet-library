@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TN.Excel.Example", "TN.Excel.Example\TN.Excel.Example.csproj", "{4ECCBFB0-60E1-4C12-A32E-228C91948EF6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TN.Excel", "..\..\nutget-package\TN.Excel\TN.Excel.csproj", "{C67BC17C-5CB2-47C0-AA9F-453AC7F4A215}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4ECCBFB0-60E1-4C12-A32E-228C91948EF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ECCBFB0-60E1-4C12-A32E-228C91948EF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ECCBFB0-60E1-4C12-A32E-228C91948EF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ECCBFB0-60E1-4C12-A32E-228C91948EF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C67BC17C-5CB2-47C0-AA9F-453AC7F4A215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C67BC17C-5CB2-47C0-AA9F-453AC7F4A215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C67BC17C-5CB2-47C0-AA9F-453AC7F4A215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C67BC17C-5CB2-47C0-AA9F-453AC7F4A215}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A834C586-D6B0-4EEA-979F-B13517AEB039}
+	EndGlobalSection
+EndGlobal
