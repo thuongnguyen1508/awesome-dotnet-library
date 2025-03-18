@@ -20,8 +20,12 @@ This repository contains a collection of reusable .NET libraries. The goal is to
 ✔ **TN.Azure.Cosmos**: Implementation using Azure cosmos database.  
 ✔ **TN.Excel**: Implementation importer/exporter excel.  
 ✔ **TN.Slack**: Implementation function send slack.  
-✔ **TN.Memcache**: Implementation function send slack.  
-✔ **TN.Redis**: Implementation function send slack.  
+✔ **TN.Memcache**: Implementation service work with memcache.  
+✔ **TN.Redis**: Implementation service work with redis.  
+✔ **TN.Neo4j**: Implementation service work with neo4j.  
+✔ **TN.Email**: Implementation service work with email.  
+✔ **TN.Pdf**: Implementation service work with pdf.  
+✔ **TN.TOTP**: Implementation service work manage TTOP.  
 
 ## Installation  
 
